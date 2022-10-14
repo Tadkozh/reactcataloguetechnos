@@ -1,9 +1,17 @@
+import Home from './pages/Home';
+import Menu from './components/Menu';
+import TechnoAdd from './pages/TechnoAdd';
+import TechnoList from './pages/TechnoList';
+import './css/app.css';
 
 function App() {
   return (
-    <div className="App">
-      Bonjour //pour tester si ça marche
-    </div>
+    <>
+      <Menu />
+      <Home />
+      <TechnoAdd />
+      <TechnoList />
+    </>
   );
 }
 
