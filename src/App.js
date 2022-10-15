@@ -12,6 +12,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/add' element={<TechnoAdd />} />
         <Route path='/list' element={<TechnoList />} />
       </Routes>
