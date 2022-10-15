@@ -1,9 +1,38 @@
-export default function TechnoAdd() {
+export default function TechnoAdd(props) { // Passage des props de App vers TechnoAdd (du parent vers l'enfant) 
+  //--> vérifiable dans l'onglet Components de l'extension React Developper Tools :
+      //TechnoAdd
+      //  props
+      //    handleAddTechno: ƒ handleAddTechno() {}
+      //    hello: "world"
+      //    new entry: ""
+
+  const { handleAddTechno } = props //destructuring.
+
+  const techno = {
+    name: 'React',
+    category: 'front',
+    description: 'Learn React',
+  }; // un objet en dur pour savoir si notre tuyauterie fonctionne
+
+  //Chaque fois qu'on clique sur "Add Techno, on obtient bien dans la console :
+          // handleAddTechno {name: 'React', category: 'front', description: 'Learn React'}
+          // category: "front"
+          // description: "Learn React"
+          // name: "React"
+
+  //Donc le passage de props fonctionne.
+
+  function handleSubmit(evt) {
+    evt.preventDefault(); //pour éviter que toute la page se rafraichisse
+    handleAddTechno(techno);
+  }
+
   return (
     <div className='techno-add'>
       <h1>Add a Techno</h1>
       <div>
-        <form>
+        {/* <form onSubmit = {(evt) => handleAddTechno(evt)}> */}
+        <form onSubmit = {(evt) => handleSubmit(evt)}>
           <label htmlFor='techno-name'>Name</label>
           <br />
           <input type='text' name='techno-name' id='techno-name' />

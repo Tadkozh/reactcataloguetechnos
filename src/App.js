@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Menu from './components/Menu';
@@ -7,13 +8,25 @@ import TechnoList from './pages/TechnoList';
 import './css/app.css';
 
 function App() {
+  const [technos, setTechnos] = useState([]) 
+  // stockage de toutes les technos ajoutées. Ca commence par un tableau vide qui va s'enrichir par la suite
+  // [{name: 'React', category: 'front', description: 'learn React' }, {}, {}]
+
+  function handleAddTechno(techno) {     
+    console.log('handleAddTechno', techno);
+  }
+  //Sera appelée dans le composant TechnoAdd, et les props vont être "remontées"(?) vers le parent Apps
+  //Cela permettra ensuite de redescendre ces props vers le cousin TehnoList
+
   return (
     <>
       <Menu />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/add' element={<TechnoAdd />} />
+        <Route path='/add' element={<TechnoAdd handleAddTechno={handleAddTechno} hello='world' />} /> 
+        {/* Passage des props de App vers TechnoAdd (du parent vers l'enfant) */}
+        {/* hello='world' : deuxième props à valeur pédagogique */}
         <Route path='/list' element={<TechnoList />} />
       </Routes>
     </>
