@@ -1,3 +1,5 @@
+import { Routes, Route } from 'react-router-dom'
+
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import TechnoAdd from './pages/TechnoAdd';
@@ -8,9 +10,11 @@ function App() {
   return (
     <>
       <Menu />
-      <Home />
-      <TechnoAdd />
-      <TechnoList />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/add' element={<TechnoAdd />} />
+        <Route path='/list' element={<TechnoList />} />
+      </Routes>
     </>
   );
 }
