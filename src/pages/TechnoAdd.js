@@ -6,7 +6,8 @@ export default function TechnoAdd(props) { // Passage des props de App vers Tech
       //    hello: "world"
       //    new entry: ""
 
-  const { handleAddTechno } = props //destructuring.
+  const { handleAddTechno, a } = props //déstructuration 
+  // https://www.digitalocean.com/community/tutorials/understanding-destructuring-rest-parameters-and-spread-syntax-in-javascript-fr
 
   const techno = {
     name: 'React',
@@ -25,6 +26,7 @@ export default function TechnoAdd(props) { // Passage des props de App vers Tech
   function handleSubmit(evt) {
     evt.preventDefault(); //pour éviter que toute la page se rafraichisse
     handleAddTechno(techno);
+    console.log('a', a); // props à valeur pédagogique issue de App
   }
 
   return (
@@ -51,7 +53,7 @@ export default function TechnoAdd(props) { // Passage des props de App vers Tech
           <br />
           <textarea name='techno-description' id='techno-description' cols='30' rows='10'></textarea>
           <br />
-          <input type='submit' value='Add Techno' />
+          <input type='submit' value='Add Techno' className='btn'/>
         </form>
       </div>
     </div>

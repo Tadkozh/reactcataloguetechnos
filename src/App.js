@@ -24,9 +24,19 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/add' element={<TechnoAdd handleAddTechno={handleAddTechno} hello='world' />} /> 
+        <Route path='/add' element={<TechnoAdd handleAddTechno={handleAddTechno} hello='world' a={10} />} /> 
         {/* Passage des props de App vers TechnoAdd (du parent vers l'enfant) */}
         {/* hello='world' : deuxième props à valeur pédagogique */}
+        {/* a='b' : troisième props à valeur pédagogique */}
+
+        {/* Après transfert de props on constate dans l'onglet Components de l'extension React Developper Tools :
+        TechnoAdd
+          props
+            a: "b"
+            handleAddTechno: ƒ handleAddTechno() {}
+            hello: "world"
+            new entry: "" */}
+
         <Route path='/list' element={<TechnoList />} />
       </Routes>
     </>
