@@ -16,6 +16,7 @@ function App() {
 
   function handleAddTechno(techno) {     
     console.log('handleAddTechno', techno);
+    setTechnos([...technos, techno])
   }
   // Sera appelée dans le composant TechnoAdd, et les props vont être "remontées" vers le parent Apps
   // Cela permettra ensuite de redescendre ces props vers le cousin TehnoList
