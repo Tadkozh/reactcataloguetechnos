@@ -1,3 +1,8 @@
+// TechnoAdd est un dump component (un composant idiot) : il ne fait que récupérer les données
+// Le Smart component, c'est app.js : il va gérer le stockage des données collectées pour pouvoir aussi les envoyer sur TechnoList
+// app récupère chaque techno avec sa fonction handleAddTechno, qui va alienter le tableau useState technos
+
+
 export default function TechnoAdd(props) { // Passage des props de App vers TechnoAdd (du parent vers l'enfant) 
   //--> vérifiable dans l'onglet Components de l'extension React Developper Tools :
       //TechnoAdd
@@ -15,7 +20,7 @@ export default function TechnoAdd(props) { // Passage des props de App vers Tech
     description: 'Learn React',
   }; // un objet en dur pour savoir si notre tuyauterie fonctionne
 
-  //Chaque fois qu'on clique sur "Add Techno, on obtient bien dans la console :
+  //Chaque fois qu'on clique sur le bouton "Add Techno", on obtient bien dans la console :
           // handleAddTechno {name: 'React', category: 'front', description: 'Learn React'}
           // category: "front"
           // description: "Learn React"
@@ -25,7 +30,7 @@ export default function TechnoAdd(props) { // Passage des props de App vers Tech
 
   function handleSubmit(evt) {
     evt.preventDefault(); //pour éviter que toute la page se rafraichisse
-    handleAddTechno(techno);
+    handleAddTechno(techno); // La fonction handleAddTechno réside dans app mais est passée dans les props (déstructuration ci-dessus)
     console.log('a', a); // props à valeur pédagogique issue de App
   }
 
