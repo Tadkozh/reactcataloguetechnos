@@ -1,6 +1,7 @@
 // Imports pas par défaut
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 // Imports par défaut
 import Home from './pages/Home';
@@ -16,7 +17,7 @@ function App() {
 
   function handleAddTechno(techno) {     
     console.log('handleAddTechno', techno);
-    setTechnos([...technos, techno])
+    setTechnos([...technos, {...techno, technoid: uuidv4()}])
   }
   // Sera appelée dans le composant TechnoAdd, et les props vont être "remontées" vers le parent Apps
   // Cela permettra ensuite de redescendre ces props vers le cousin TehnoList
