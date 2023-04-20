@@ -41,7 +41,7 @@ function App() {
             hello: "world"
             new entry: "" */}
 
-        <Route path='/list' element={<TechnoList />} />
+        <Route path='/list' element={<TechnoList technos={technos} />} />
       </Routes>
     </>
   );
