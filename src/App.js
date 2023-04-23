@@ -22,6 +22,11 @@ function App() {
   // Sera appelée dans le composant TechnoAdd, et les props vont être "remontées" vers le parent Apps
   // Cela permettra ensuite de redescendre ces props vers le cousin TehnoList
 
+  function handleDeleteTechno(id) {
+    setTechnos(technos.filter((tech) => tech.technoid !== id))
+  }
+  // Sera exécutée depuis le bouton Delete dans TechnoItem, après être passée par Technolist (props drilling)
+
   return (
     <>
       <Menu />
@@ -42,7 +47,7 @@ function App() {
             hello: "world"
             new entry: "" */}
 
-        <Route path='/list' element={<TechnoList technos={technos} />} />
+        <Route path='/list' element={<TechnoList technos={technos} handleDeleteTechno={handleDeleteTechno} />} />
       </Routes>
     </>
   );
