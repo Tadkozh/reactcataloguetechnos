@@ -1,5 +1,5 @@
 // Imports pas par défaut
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,6 +14,14 @@ function App() {
   const [technos, setTechnos] = useState([]) // technos = getter ; setTechnos = setter
   // stockage de toutes les technos ajoutées. Ca commence par un tableau vide qui va s'enrichir par la suite
   // [{name: 'React', category: 'front', description: 'learn React' }, {}, {}]
+
+  useEffect(() => {
+    console.log('useEffect with []')
+  }, [])
+
+  useEffect(() => {
+    console.log('useEffect with [technos]')
+  }, [technos])
 
   function handleAddTechno(techno) {     
     console.log('handleAddTechno', techno);
