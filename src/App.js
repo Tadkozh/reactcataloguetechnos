@@ -3,24 +3,35 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
+import './css/app.css';
+
 // Imports par défaut
 import Home from './pages/Home';
 import Menu from './components/Menu';
 import TechnoAdd from './pages/TechnoAdd';
 import TechnoList from './pages/TechnoList';
-import './css/app.css';
+
+// Hook personnalisé
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   const [technos, setTechnos] = useState([]) // technos = getter ; setTechnos = setter
   // stockage de toutes les technos ajoutées. Ca commence par un tableau vide qui va s'enrichir par la suite
   // [{name: 'React', category: 'front', description: 'learn React' }, {}, {}]
 
+  const STORAGE_KEY = "technos";
+  const [storedTechnos, setStoredTechnos] = useLocalStorage(STORAGE_KEY, []) // Custom hook
+
+  // Au premier montage du composant
   useEffect(() => {
+    setTechnos(storedTechnos);
     console.log('useEffect with []')
   }, [])
 
+  // Au rerender chaque fois qu'une techno change
   useEffect(() => {
-    console.log('useEffect with [technos]')
+    setStoredTechnos(technos);
+    console.log("useEffect with [technos]");
   }, [technos])
 
   function handleAddTechno(techno) {     
@@ -28,7 +39,7 @@ function App() {
     setTechnos([...technos, {...techno, technoid: uuidv4()}])
   }
   // Sera appelée dans le composant TechnoAdd, et les props vont être "remontées" vers le parent Apps
-  // Cela permettra ensuite de redescendre ces props vers le cousin TehnoList
+  // Cela permettra ensuite de redescendre ces props vers le cousin TechnoList
 
   function handleDeleteTechno(id) {
     setTechnos(technos.filter((tech) => tech.technoid !== id))
