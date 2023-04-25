@@ -3,13 +3,24 @@
 }
 
 .btn {
-  background-color: #4CAF50;
+  background-color: #07c5fa;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background-color: #4CAF50;
+}
+
+.btn:active {
+  outline: 1px solid grey;
+  border-left: 2px solid grey;
+  border-top: 2px solid grey;
 }
 
 input[type=text] {

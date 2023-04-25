@@ -1,15 +1,20 @@
 .card {
-  border: 5px solid #07c5fa;
+  border: 1px solid #07c5fa;
   padding: 20px;
   margin: 10px;
 }
 
 .btn-delete {
-  background-color: #af0303;
+  background-color: #07c5fa;
   color: white;
   padding: 14px 20px;
   margin: 8px 0 0 70%;
   border: none;
   cursor: pointer;
   width: 30%;
+  border-radius: 3px;
+}
+
+.btn-delete:hover {
+  background-color: #af0303;
 }

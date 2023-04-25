@@ -52,7 +52,6 @@ export default function TechnoAdd(props) { // Passage des props de App vers Tech
     });
     // On reset techno pour signifier à l'utilisateur que sa validation du formulaire est prise en compte 
     // et éviter de rentrer plusieurs fois le même objet (mais n'évite pas de rentrer plusieurs fois un objet vide)
-    // PB : Mon state techno est bien vidé, mais pas les champs du formulaire ???
   }
 
   return (
