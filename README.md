@@ -4,7 +4,7 @@
 
 On peut **visualiser**, **ajouter** et **supprimer** des cards, mais pas en *modifier*.
 
-<img src="public/reactcataloguetechnosAdd.png" alt="Add" height="300"/>     <img src="public/reactcataloguetechnosListe.png" alt="List" height="300"/>
+<img src="public/reactcataloguetechnosAdd.png" alt="Add" height="400"/>     <img src="public/reactcataloguetechnosListe.png" alt="List" height="400"/>
 
 Le tout est gardé en mémoire en local storage (donc associé à un navigateur)
 
