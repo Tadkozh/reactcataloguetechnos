@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Catalogue de technos en React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Une application de cards avec CRUD partiel
 
-## Available Scripts
+On peut visualiser, ajouter et supprimer des cards, mais pas en modifier.
 
-In the project directory, you can run:
+![reactcataloguetechnosAdd](public/reactcataloguetechnosAdd.png)
 
-### `npm start`
+![reactcataloguetechnosList](public/reactcataloguetechnosListe.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Le tout est gardé en mémoire en local storage (donc associé à un navigateur)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![reactcataloguetechnosLocalstorage](public/reactcataloguetechnosLocalstorage.png)
 
-### `npm test`
+## Voir ce projet en action localement :
+- git clone git@github.com:Tadkozh/reactcataloguetechnos.git
+- npm install
+- npm start
+- Enjoy !
+## Bibliothèques utilisées :
+- [React](https://react.dev)
+- [React Router DOM](https://reactrouter.com/) 
+- [UUID](https://www.npmjs.com/package/uuid)
+### Hook personnalisé :
+- [useLocalStorage](https://usehooks.com/)
+## L'occasion de revoir des fondamentaux en React :
+- [CRA](https://create-react-app.dev) et une arborescence de fichiers originale
+- React Router dont Active Links
+- Formulaires et boutons (onSubmit/onChange, onClick)
+- useState et gestion d'états
+- passage de props, remontée de props et props drilling (déstructuration)
+- map et uuid
+- useEffect pour gérer la mise en mémoire
+- hook personnalisé useLocalStorage
+## Point intéressant, une méthode pour récupérer les données d'un formulaire
+dans TechnoAdd, à base d'objets et de spread operator, pour gérer tous les champs en un seul handleChange : 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+	function handleChange(evt) {
 
-### `npm run build`
+		const {name, value} = evt.targe
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+		setTechno({...techno, [name]: value })
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+	}
+Le tout sans passer par useRef, ReactHook Form et sans avoir besoin d'un state pour chaque champs
+	
+Nécessite de faire l'association dans chaque champ. Exemple :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+	value={techno.technodescription} 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+	onChange={(evt) => handleChange(evt)}
+	
+## Améliorations possibles
+- Utiliser [Vite](https://vitejs.dev) plutôt que [CRA](https://create-react-app.dev) (nécessiterait de créer un nouveau projet)
+- Ajouter un [prettier](https://prettier.io)
+- un mode sombre
+- un contrôle du formulaire pour éviter d'entrer une card vide
+- une manière d'organiser les cards autrement que simplement par leur ordre d'entrée (peut être par categories?)
+- Ajouter des tests
+- Passer en [TypeScript](https://infodocbib.net/2023/01/typescript-un-passage-oblige/)

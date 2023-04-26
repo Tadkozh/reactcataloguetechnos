@@ -34,7 +34,7 @@ export default function TechnoAdd(props) { // Passage des props de App vers Tech
   //Donc le passage de props fonctionne.
 
   function handleChange(evt) {
-    const {name, value} = evt.target //déstructuring
+    const {name, value} = evt.target //destructuring
     setTechno({...techno, [name]: value }) // immutabilité : on clone l'objet techno ..., et on ajoute la valeur récupérée
   }
   // Selon l'endroit, name vaut technoname, technocategory, technodescription
