@@ -2,15 +2,13 @@
 
 ## Une application de cards avec CRUD partiel
 
-On peut visualiser, ajouter et supprimer des cards, mais pas en modifier.
-
-![reactcataloguetechnosAdd](public/reactcataloguetechnosAdd.png)
-
-![reactcataloguetechnosList](public/reactcataloguetechnosListe.png)
+On peut **visualiser**, **ajouter** et **supprimer** des cards, mais pas en *modifier*.
+<img src="public/reactcataloguetechnosAdd.png#left" alt="Add" width="200"/>
+<img src="public/reactcataloguetechnosListe.png#right" alt="List" width="200"/>
 
 Le tout est gardé en mémoire en local storage (donc associé à un navigateur)
 
-![reactcataloguetechnosLocalstorage](public/reactcataloguetechnosLocalstorage.png)
+![reactcataloguetechnosLocalstorage](public/reactcataloguetechnosLocalstorage.png#center)
 
 ## Voir ce projet en action localement :
 - git clone git@github.com:Tadkozh/reactcataloguetechnos.git
@@ -42,7 +40,7 @@ dans TechnoAdd, à base d'objets et de spread operator, pour gérer tous les cha
 		setTechno({...techno, [name]: value })
 
 	}
-Le tout sans passer par useRef, ReactHook Form et sans avoir besoin d'un state pour chaque champs
+Le tout sans passer par useRef ou ReactHookForm, et sans avoir besoin d'un state pour chaque champs
 	
 Nécessite de faire l'association dans chaque champ. Exemple :
 
